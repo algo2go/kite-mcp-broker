@@ -1,8 +1,8 @@
 package mock
 
 import (
-	"github.com/zerodha/kite-mcp-server/broker"
-	"github.com/zerodha/kite-mcp-server/kc/money"
+	"github.com/algo2go/kite-mcp-broker"
+	"github.com/algo2go/kite-mcp-money"
 )
 
 // NewDemoClient returns a mock broker pre-populated with a realistic Indian
