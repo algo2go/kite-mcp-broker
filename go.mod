@@ -10,7 +10,7 @@ go 1.25.0
 // "replacement directory ../kc/money does not exist". GOPROXY is now
 // the canonical source; no replace needed.
 require (
-	github.com/algo2go/kite-mcp-money v0.1.0
+	github.com/algo2go/kite-mcp-money v0.1.1
 	github.com/stretchr/testify v1.10.0
 	github.com/zerodha/gokiteconnect/v4 v4.4.0
 )
