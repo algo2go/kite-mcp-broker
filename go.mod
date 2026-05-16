@@ -2,17 +2,17 @@ module github.com/algo2go/kite-mcp-broker
 
 go 1.25.0
 
-// In workspace mode (the canonical local + CI build path), kc/money is
-// resolved via go.work at the repo root listing ./kc/money as a sibling
-// member. The replace directive below is belt-and-suspenders so this
-// module stays buildable from a partial checkout that omits go.work
-// (e.g., if a future consumer vendors only this module, or for
-// GOWORK=off diagnostics). Drop the replace once kc/money has its own
-// published tag.
+// kite-mcp-money is fetched from GOPROXY at its published tag (v0.1.0
+// or later). The prior `replace github.com/algo2go/kite-mcp-money =>
+// ../kc/money` directive pointed at a sibling that was deleted during
+// Phase B canary deletion (v228 deploy) — the path stopped existing
+// and standalone `go test ./...` from this module failed with
+// "replacement directory ../kc/money does not exist". GOPROXY is now
+// the canonical source; no replace needed.
 require (
+	github.com/algo2go/kite-mcp-money v0.1.0
 	github.com/stretchr/testify v1.10.0
 	github.com/zerodha/gokiteconnect/v4 v4.4.0
-	github.com/algo2go/kite-mcp-money v0.0.0-00010101000000-000000000000
 )
 
 require (
@@ -25,5 +25,3 @@ require (
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-replace github.com/algo2go/kite-mcp-money => ../kc/money
